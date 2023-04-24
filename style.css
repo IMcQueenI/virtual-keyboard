@@ -1,0 +1,71 @@
+
+@font-face {
+	font-family: 'McQueen';
+	src: url('./fonts/MAGNETOB.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{
+	background-image: url('./images/wallpaperflare.com_wallpaper.jpg');
+	font-family: 'McQueen';
+	overflow: hidden;
+}
+
+.wrapper{
+	width: 1440px;
+	margin: 0 auto;
+}
+
+.title{
+	align-items: center;
+	margin-top: 90px;
+	width: 870px;
+	height: 55px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 50px;
+	color: rgb(245, 170, 66);
+	margin-bottom: 30px;
+	background-color: rgb(252, 3, 3);
+	border-radius: 50px;
+}
+
+.keyboard__input {
+	display: block;
+	margin:  0 auto;
+	height: 150px;
+	width: 800px;
+	padding: 20px;
+	border-radius: 20px;
+	font-size: 20px;
+	cursor: pointer;
+	box-shadow: 10px 5px 5px rgb(252, 3, 3);
+}
+
+.keyboard {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	height: 300px;
+	width: 900px;
+	border-radius: 20px;
+}
+
+.description {
+	font-size: 25px;
+	color: rgb(245, 170, 66);
+	text-align: center;
+	margin-top: 100px;
+	line-height: 30px;
+	background-color: rgb(252, 3, 3);
+	border-radius: 80px;
+	width: 1000px;
+	height: 90px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding-top: 10px;
+}
