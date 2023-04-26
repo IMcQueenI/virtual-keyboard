@@ -19,30 +19,17 @@ wrapper.appendChild(textarea);
 wrapper.appendChild(keyboard);
 wrapper.appendChild(description);
 
-let KEYBOARD = [192, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 189, 187, 8, 9, 81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221, 220, 46, 20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222, 13, 16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 38, 16, 17, 91, 18, 32, 18, 37, 40, 39, 17];
+const keys = [
+	'`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
+	'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '/', 'Del',
+	'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter',
+	'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '▲', 'Shift',
+	'Ctrl', 'Win', 'Alt', '', 'Alt', 'Ctrl', '◄', '▼', '►', 'Ctrl',
+  ]
 
-function open() {
-	let out = '';
-	for (let i = 0; i < KEYBOARD.length; i++) {
-		out += '<div class="key" >' + String.fromCharCode(KEYBOARD[i]) + '</div>';
-	}
-	document.querySelector('#keyboard').innerHTML = open;
-}
-
-open();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//wrapper.innerText = 'Namrrre';
+  keys.forEach((e) => {
+	const key = document.createElement('button');
+	key.className = 'key';
+	key.innerHTML = e;
+	keyboard.appendChild(key);
+  });

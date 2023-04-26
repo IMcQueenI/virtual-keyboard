@@ -49,10 +49,109 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	background-color: white;
-	height: 300px;
+	height: 230px;
 	width: 900px;
 	border-radius: 20px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	display:flex;
+	flex-wrap: wrap;
+	justify-self: center;
+	padding-top: 10px;
+	padding-left: 8px;
 }
+
+.key {
+	float: left;
+	width: 55px;
+	height: 34px;
+	margin-left: 6px;
+	font-weight: 500;
+	line-height: 40px;
+	text-align: center;
+	color: black;
+	border-radius: 5px;
+	cursor: pointer;
+	user-select: none;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.key:nth-child(14),:nth-child(29),:nth-child(30),:nth-child(43) {
+	width: 80px;
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(15) {
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(56) {
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(57) {
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(58) {
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(60) {
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(61) {
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(65) {
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(42) {
+	width: 117px;
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(55) {
+	width: 117px;
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(59) {
+	width: 325px;
+	background-color: #1C232E;
+	color:darkgray;
+}
+
+.key:nth-child(15) {
+	width: 40px;
+}
+
+.key:nth-child(26) {
+	width: 40px;
+}
+
+.key:nth-child(27) {
+	width: 40px;
+}
+
+.key:nth-child(28) {
+	width: 40px;
+}
+
 
 .description {
 	font-size: 25px;
