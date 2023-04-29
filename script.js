@@ -27,6 +27,14 @@ const keys = [
   'Ctrl', 'Win', 'Alt', '', 'Alt', 'Ctrl', '◄', '▼', '►', 'Ctrl',
 ];
 
+const keys2 = [
+  '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
+  'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '/', 'Del',
+  'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter',
+  'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', '▲', 'Shift',
+  'Ctrl', 'Win', 'Alt', '', 'Alt', 'Ctrl', '◄', '▼', '►', 'Ctrl',
+];
+
 keys.forEach((e) => {
   const key = document.createElement('button');
   key.className = 'key';
@@ -123,3 +131,56 @@ mqArr[54].addEventListener('mousedown', () => {
 mqArr[54].addEventListener('mouseup', () => {
   setLowerCaseKeys();
 });
+
+
+// Arrows
+
+function arrowKey(event) {
+  switch (event.key) {
+    case 'ArrowUp':
+      textarea.value += '↑';
+      break;
+    case 'ArrowDown':
+      textarea.value += '↓';
+      break;
+    case 'ArrowLeft':
+      textarea.value += '←';
+      break;
+    case 'ArrowRight':
+      textarea.value += '→';
+      break;
+    default:
+      break;
+  }
+}
+
+// добавляю срабатывание клавиш на клавиатуре
+document.addEventListener('keydown', (event) => {
+  // Предотвращение поведения по умолчанию для специальных клавиш
+  if (
+    event.key === 'Shift' ||
+    event.key === 'Control' ||
+    event.key === 'Alt' ||
+    event.key === 'Tab' ||
+    event.key === 'Enter' ||
+    event.key === 'Backspace'
+  ) {
+    event.preventDefault();
+  }
+
+  const index = keys.indexOf(event.key);
+  if (index !== -1) {
+    mqArr[index].click();
+  }
+  if (event.key.startsWith('Arrow')) {
+    arrowKey(event); // Проверка по стрелкам
+  }
+});
+
+document.addEventListener('keyup', (event) => {
+  if (event.key === 'Shift') {
+    setLowerCaseKeys();
+  }
+});
+
+// Добавляю смену языка
