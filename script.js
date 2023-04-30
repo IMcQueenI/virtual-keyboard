@@ -93,9 +93,9 @@ mqArr[13].addEventListener('click', () => {
 // Del
 
 mqArr[28].addEventListener('click', () => {
-  const pos = textarea.selectionStart;
-  textarea.value = textarea.value.slice(0, pos) + textarea.value.slice(pos + 1);
-  textarea.setSelectionRange(pos, pos);
+  const position = textarea.selectionStart;
+  textarea.value = textarea.value.slice(0, position) + textarea.value.slice(position + 1);
+  textarea.setSelectionRange(position, position);
 });
 
 // Tab
@@ -132,7 +132,6 @@ mqArr[54].addEventListener('mouseup', () => {
   setLowerCaseKeys();
 });
 
-
 // Arrows
 
 function arrowKey(event) {
@@ -158,12 +157,12 @@ function arrowKey(event) {
 document.addEventListener('keydown', (event) => {
   // Предотвращение поведения по умолчанию для специальных клавиш
   if (
-    event.key === 'Shift' ||
-    event.key === 'Control' ||
-    event.key === 'Alt' ||
-    event.key === 'Tab' ||
-    event.key === 'Enter' ||
-    event.key === 'Backspace'
+    event.key === 'Shift'
+    || event.key === 'Control'
+    || event.key === 'Alt'
+    || event.key === 'Tab'
+    || event.key === 'Enter'
+    || event.key === 'Backspace'
   ) {
     event.preventDefault();
   }
@@ -184,3 +183,63 @@ document.addEventListener('keyup', (event) => {
 });
 
 // Добавляю смену языка
+
+let currentKeyboard = {
+  type: 'latin',
+  layout: keys,
+};
+
+// Проверяю, сохранен ли язык в localStorage, и обновляю объект currentKeyboard
+const savedLanguage = localStorage.getItem('keyboardLanguage');
+if (savedLanguage === 'cyrillic') {
+  currentKeyboard.type = 'cyrillic';
+  currentKeyboard.layout = keys2;
+}
+
+// Обновление клавиатуры
+function updateKeyboard() {
+  for (let i = 0; i < mqArr.length; i++) {
+    if (currentKeyboard.layout[i]) {
+      mqArr[i].innerHTML = currentKeyboard.layout[i];
+    }
+  }
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.ctrlKey && event.altKey) {
+    if (currentKeyboard.type === 'latin') {
+      currentKeyboard.type = 'cyrillic';
+      currentKeyboard.layout = keys2;
+    } else {
+      currentKeyboard.type = 'latin';
+      currentKeyboard.layout = keys;
+    }
+    updateKeyboard();
+    localStorage.setItem('keyboardLanguage', currentKeyboard.type);
+  }
+});
+
+updateKeyboard();
+
+// Добавляю анимации нажатия
+
+const animationkeys = document.querySelectorAll('.key');
+
+document.addEventListener('keydown', (event) => {
+  animationkeys.forEach((key) => {
+    if (key.textContent === event.key) {
+      // Добавляю анимацию, если клавиша нажата
+      key.style.backgroundColor = 'rgb(245, 170, 66)';
+      key.style.boxShadow = '0 1px 1px black';
+    }
+  });
+});
+document.addEventListener('keyup', (event) => {
+  animationkeys.forEach((key) => {
+    if (key.textContent === event.key) {
+      // Удаляю анимацию, если клавиша отпущена
+      key.style.backgroundColor = '';
+      key.style.boxShadow = '0 3px 3px black';
+    }
+  });
+});
