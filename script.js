@@ -46,8 +46,10 @@ const mqArr = document.getElementsByClassName('key');
 
 // textarea
 
+// eslint-disable-next-line no-restricted-syntax
 for (const key of mqArr) {
   if (key.innerHTML.length === 1) {
+    // eslint-disable-next-line no-return-assign
     key.addEventListener('click', () => (textarea.value += key.textContent));
   }
 }
@@ -56,6 +58,7 @@ for (const key of mqArr) {
 
 let isCapsOn = false;
 const setLowerCaseKeys = () => {
+  // eslint-disable-next-line no-restricted-syntax
   for (const key of mqArr) {
     if (key.innerHTML.length === 1) {
       key.innerHTML = key.innerHTML.toLowerCase();
@@ -64,6 +67,7 @@ const setLowerCaseKeys = () => {
 };
 
 const setUpperCaseKeys = () => {
+  // eslint-disable-next-line no-restricted-syntax
   for (const key of mqArr) {
     if (key.innerHTML.length === 1) {
       key.innerHTML = key.innerHTML.toUpperCase();
@@ -184,7 +188,7 @@ document.addEventListener('keyup', (event) => {
 
 // Добавляю смену языка
 
-let currentKeyboard = {
+const currentKeyboard = {
   type: 'latin',
   layout: keys,
 };
@@ -198,6 +202,7 @@ if (savedLanguage === 'cyrillic') {
 
 // Обновление клавиатуры
 function updateKeyboard() {
+  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < mqArr.length; i++) {
     if (currentKeyboard.layout[i]) {
       mqArr[i].innerHTML = currentKeyboard.layout[i];
@@ -229,7 +234,9 @@ document.addEventListener('keydown', (event) => {
   animationkeys.forEach((key) => {
     if (key.textContent === event.key) {
       // Добавляю анимацию, если клавиша нажата
+      // eslint-disable-next-line no-param-reassign
       key.style.backgroundColor = 'rgb(245, 170, 66)';
+      // eslint-disable-next-line no-param-reassign
       key.style.boxShadow = '0 1px 1px black';
     }
   });
@@ -238,7 +245,9 @@ document.addEventListener('keyup', (event) => {
   animationkeys.forEach((key) => {
     if (key.textContent === event.key) {
       // Удаляю анимацию, если клавиша отпущена
+      // eslint-disable-next-line no-param-reassign
       key.style.backgroundColor = '';
+      // eslint-disable-next-line no-param-reassign
       key.style.boxShadow = '0 3px 3px black';
     }
   });
