@@ -11,7 +11,7 @@ keyboard.setAttribute('class', 'keyboard');
 keyboard.setAttribute('id', 'keyboard');
 const description = document.createElement('div');
 description.setAttribute('class', 'description');
-description.innerText = 'The keyboard was created in the Windows operating system.\nTo switch the language press: left Shift + alt.';
+description.innerText = 'The keyboard was created in the Windows operating system.\nTo switch the language press: left Сtrl + alt.';
 const body = document.querySelector('body');
 body.appendChild(wrapper);
 wrapper.appendChild(title);
